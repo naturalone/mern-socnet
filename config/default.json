@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://naturaltwenty:1234@socnet-qlixl.mongodb.net/test?retryWrites=true&w=majority",
+  "jwtSecret": "sectok"
+}
