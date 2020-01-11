@@ -4,8 +4,9 @@ import "./App.scss";
 
 // Components
 import Navbar from "./components/layout/Navbar";
-import Register from "./components/layout/Register";
-import Login from "./components/layout/Login";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import Feed from "./components/layout/Feed";
 //import Posts from "./components/layout/Posts";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
@@ -14,6 +15,10 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { loadUser } from "./actions/auth";
 import setAuthToken from "./utils/setAuthToken";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 const App = () => {
   useEffect(() => {
@@ -25,9 +30,9 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          {/*<Route exact path="/" component={Posts} />*/}
           <section>
             <Switch>
+              <Route exact path="/" component={Feed} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               {/*<PrivateRoute exact path="/editor" component={PostEditor} />*/}

@@ -21,24 +21,25 @@
       align-items: center;
 
       h3 {
-        font-weight: 400;
+        font-weight: 700;
+        font-size: 12px;
       }
 
       i {
         padding-right: 10px;
-        font-size: 14px;
+        font-size: 16px;
       }
     }
   }
 
   &-title {
     padding-left: 70px;
+    font-size: 20px;
   }
 
   h3 {
     font-weight: 700;
     color: white;
-    font-size: 18px;
     margin-top: 10px;
     margin-bottom: 10px;
   }

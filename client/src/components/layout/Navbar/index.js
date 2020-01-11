@@ -12,11 +12,11 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
     <div className="navbar-toolbar">
       <Link to="/register">
         <i className="fas fa-user-plus"></i>
-        <h3>register</h3>
+        <h3>REGISTER</h3>
       </Link>
       <Link to="/login">
         <i className="fas fa-sign-in-alt"></i>
-        <h3>login</h3>
+        <h3>LOGIN</h3>
       </Link>
     </div>
   );
@@ -25,7 +25,7 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
     <div className="navbar-toolbar">
       <a onClick={logout} href="#!">
         <i class="fas fa-sign-out-alt"></i>
-        <h3>logout</h3>
+        <h3>LOG OUT</h3>
       </a>
     </div>
   );
