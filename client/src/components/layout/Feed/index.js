@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import PostJumbo from "../../posts/PostJumbo";
 
 import "./Feed.scss";
 
 const Feed = props => {
   return (
     <div className="feed-container">
-      <h1>feed</h1>
+      <PostJumbo />
+      <PostJumbo />
+      <PostJumbo />
     </div>
   );
 };

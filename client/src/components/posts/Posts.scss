@@ -1,0 +1,44 @@
+$color-red: #fb524c;
+$color-black: #000000;
+$color-brightgray: #f1f1f1;
+$color-purple: #6a0bff;
+$color-white: #ffffff;
+
+.post {
+  &-jumbotron {
+    display: flex;
+    flex-direction: row;
+    height: 250px;
+    background-color: $color-brightgray;
+    margin-bottom: 50px;
+
+    &-left {
+      width: 60%;
+
+      img {
+        max-height: 100%;
+      }
+    }
+
+    &-right {
+      width: 40%;
+      background-color: $color-purple;
+      color: white;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      text-align: center;
+      padding: 30px 15px;
+
+      h2 {
+        font-weight: 700;
+      }
+
+      h5 {
+        font-size: 15px;
+      }
+    }
+  }
+}

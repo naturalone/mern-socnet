@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const Comment = require("./Comment");
 
-const Post = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
   author: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "users"
   },
   text: {
@@ -18,10 +18,12 @@ const Post = new mongoose.Schema({
   likes: [
     {
       user: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "users"
       }
     }
   ],
   comments: [Comment.schema]
 });
+
+module.exports = Post = mongoose.model("post", PostSchema);
