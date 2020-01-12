@@ -1,25 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
+import { connect } from "react-redux";
 
 import "./Posts.scss";
 
-const PostJumbo = props => {
+const PostJumbo = ({ post: { title, _id } }) => {
   return (
     <div className="post-jumbotron">
       <div className="post-jumbotron-left">
-        <img
-          src="https://i.ibb.co/p3FfZbM/1489595073194798750.jpg"
-          alt="1489595073194798750"
-        />
+        <Link to={`/post/${_id}`}>
+          <img
+            src="https://i.ibb.co/0Qtwk9P/157886757973501354.jpg"
+            alt="157886757973501354"
+          />
+        </Link>
       </div>
       <div className="post-jumbotron-right">
-        <div>
-          <h2>Title of the post</h2>
+        <Link to={`/post/${_id}`}>
+          <h2>{title}</h2>
           <h5>
             Phasellus congue libero sed enim volutpat lobortis. Proin tristique
             tellus nisl, non vestibulum felis dictum eu.
           </h5>
-        </div>
+        </Link>
         <p>Nikita Agarkov</p>
       </div>
     </div>
@@ -28,4 +33,4 @@ const PostJumbo = props => {
 
 PostJumbo.propTypes = {};
 
-export default PostJumbo;
+export default connect()(PostJumbo);
