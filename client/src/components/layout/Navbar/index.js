@@ -33,7 +33,7 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
   return (
     <div className="navbar">
       <Link to="/">
-        <h3 className="navbar-title">Medium.</h3>
+        <h3 className="navbar-title">notMedium.</h3>
       </Link>
       {!loading && <Fragment>{isAuth ? authNav : guestNav}</Fragment>}
     </div>

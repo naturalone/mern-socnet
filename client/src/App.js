@@ -7,7 +7,7 @@ import Navbar from "./components/layout/Navbar";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Feed from "./components/layout/Feed";
-//import Posts from "./components/layout/Posts";
+import Post from "./components/posts/Post";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 // Redux
@@ -33,6 +33,7 @@ const App = () => {
           <section>
             <Switch>
               <Route exact path="/" component={Feed} />
+              <Route exact path="/post/:id" component={Post} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               {/*<PrivateRoute exact path="/editor" component={PostEditor} />*/}

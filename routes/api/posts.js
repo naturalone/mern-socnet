@@ -21,18 +21,28 @@ router.get("/", async (req, res) => {
   }
 });
 
+// @route   GET api/posts/:id
+// @desc    Get post by id
+// @access  Public
+router.get("/:id", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+
+    if (!post) return res.status(404).send("Post not found.");
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server error.");
+  }
+});
+
 // @route   POST api/posts
 // @desc    Add new post
 // @access  Private
 router.post(
   "/",
-  [
-    auth,
-    [
-      check("text", "Text is required").exists(),
-      check("title", "Title is required").exists()
-    ]
-  ],
+  [auth, [check("title", "Title is required").exists()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -43,7 +53,7 @@ router.post(
       const user = await User.findById(req.user.id).select("-password");
 
       const newPost = new Post({
-        text: req.body.text,
+        content: req.body.content,
         title: req.body.title,
         name: user.name,
         author: req.user.id

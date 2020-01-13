@@ -8,7 +8,7 @@ $color-white: #ffffff;
   &-jumbotron {
     display: flex;
     flex-direction: row;
-    height: 250px;
+    height: 330px;
     background-color: $color-brightgray;
     margin-bottom: 50px;
 
@@ -34,10 +34,6 @@ $color-white: #ffffff;
       text-align: center;
       padding: 30px 15px;
 
-      -webkit-box-shadow: inset 24px 4px 81px -56px rgba(0, 0, 0, 0.75);
-      -moz-box-shadow: inset 24px 4px 81px -56px rgba(0, 0, 0, 0.75);
-      box-shadow: inset 24px 4px 81px -56px rgba(0, 0, 0, 0.75);
-
       h2 {
         font-weight: 700;
       }
@@ -50,6 +46,27 @@ $color-white: #ffffff;
         color: white;
         text-decoration: none;
       }
+    }
+  }
+
+  &-container {
+    max-width: 680px;
+    margin: 64px auto;
+  }
+
+  &-content {
+    &-title {
+      font-weight: 600;
+    }
+
+    &-paragraph {
+      margin: 20px 0;
+      font-size: 21px;
+      font-family: "EB Garamond", serif;
+    }
+
+    &-img {
+      min-width: 100%;
     }
   }
 }

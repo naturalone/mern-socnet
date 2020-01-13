@@ -10,3 +10,7 @@ export const LOGOUT = "LOGOUT";
 // posts.js
 export const LOAD_POSTS = "LOAD_POSTS";
 export const LOAD_POSTS_FAILURE = "LOAD_POSTS_FAILURE";
+
+// post.js
+export const LOAD_POST = "LOAD_POST";
+export const LOAD_POST_FAILURE = "LOAD_POST_FAILURE";

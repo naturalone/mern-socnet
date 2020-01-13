@@ -7,10 +7,12 @@ const PostSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "users"
   },
-  text: {
-    type: String,
-    required: true
-  },
+  content: [
+    {
+      content_type: String,
+      value: String
+    }
+  ],
   title: {
     type: String,
     required: true
