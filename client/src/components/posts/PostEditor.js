@@ -1,21 +1,66 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
+import "./Posts.scss";
+
 const PostEditor = props => {
+  const [formState, setFormState] = useState({
+    focused: false,
+    currentIndex: 0,
+    currentParagraph: ""
+  });
+
+  const [formData, setFormData] = useState({
+    title: "",
+    paragraphs: [
+      {
+        contentType: "",
+        value: ""
+      }
+    ]
+  });
+
+  const setActiveParagraph = e => {
+    console.log(e.target);
+    setFormState({ ...formState, currentIndex: parseInt(e.target.id) });
+  };
+
+  const { paragraphs } = formData;
+
+  const onChange = e => {
+    console.log(e.target.id, e.target.value);
+
+    setFormData({
+      ...formData,
+      paragraphs: [...paragraphs.splice(e.target.id, 1, e.target.value)]
+    });
+  };
+
+  const captureKey = e => {
+    switch (e.key) {
+      case "Enter":
+    }
+  };
+
+  const paragraphCount = paragraphs.length;
+
   return (
     <div className="post-container">
-      <h3>placeholder</h3>
-      <p>
-        In the world of professional snooker — a game similar to pool, played
-        throughout the U.K. — there is confusion about the word tactic. Loosely
-        put, there are two kinds of shots in snooker. There are attempts to
-        pocket balls and score points, and there are safety shots where the goal
-        is to make things more difficult for your opponent. A frame of snooker
-        can descend into a protracted exchange of safety play — not particularly
-        compelling to the casual observer — with neither player attempting to
-        pocket balls. Such frames are described as “tactical.” This is wrong.
-        The proper word would be “strategic.”
-      </p>
+      {[...Array(paragraphCount).keys()].map(index => {
+        return (
+          <input
+            className="post-editor-paragraph"
+            type="text"
+            key={index}
+            id={index}
+            name="text"
+            value={paragraphs[index].value}
+            onChange={e => onChange(e)}
+            onKeyDown={e => captureKey(e)}
+            onFocus={e => setActiveParagraph(e)}
+          ></input>
+        );
+      })}
     </div>
   );
 };

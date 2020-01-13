@@ -25,7 +25,7 @@ const Navbar = ({ auth: { isAuth, loading, user }, logout }) => {
     <Fragment>
       <div className="navbar-toolbar-story navbar-toolbar-item">
         <Link to="/editor">
-          <i class="fas fa-feather-alt"></i>
+          <i className="fas fa-feather-alt"></i>
           <h3>NEW STORY</h3>
         </Link>
       </div>
@@ -35,7 +35,7 @@ const Navbar = ({ auth: { isAuth, loading, user }, logout }) => {
         </h3>
         <div className="navbar-toolbar-item">
           <a onClick={logout} href="#!">
-            <i class="fas fa-sign-out-alt"></i>
+            <i className="fas fa-sign-out-alt"></i>
             <h3>LOG OUT</h3>
           </a>
         </div>
@@ -55,8 +55,7 @@ const Navbar = ({ auth: { isAuth, loading, user }, logout }) => {
 
 Navbar.propTypes = {
   auth: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  logout: PropTypes.func.isRequired
 };
 
 const mapStateToProps = store => ({

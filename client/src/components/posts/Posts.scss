@@ -69,4 +69,13 @@ $color-white: #ffffff;
       min-width: 100%;
     }
   }
+
+  &-editor {
+    &-paragraph {
+      border-bottom: 1px solid lightgray;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
 }
