@@ -8,6 +8,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Feed from "./components/layout/Feed";
 import Post from "./components/posts/Post";
+import PostEditor from "./components/posts/PostEditor";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 // Redux
@@ -36,7 +37,7 @@ const App = () => {
               <Route exact path="/post/:id" component={Post} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
-              {/*<PrivateRoute exact path="/editor" component={PostEditor} />*/}
+              <PrivateRoute exact path="/editor" component={PostEditor} />
             </Switch>
           </section>
         </Fragment>

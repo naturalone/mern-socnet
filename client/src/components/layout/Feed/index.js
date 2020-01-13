@@ -18,7 +18,6 @@ const Feed = ({ posts, loadPosts }) => {
         <h1>Loading...</h1>
       ) : (
         posts.posts.map(post => {
-          console.log(post);
           return <PostJumbo key={post._id} post={post} />;
         })
       )}

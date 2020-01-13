@@ -7,9 +7,9 @@ import { logout } from "../../../actions/auth";
 
 import "./Navbar.scss";
 
-const Navbar = ({ auth: { isAuth, loading }, logout }) => {
+const Navbar = ({ auth: { isAuth, loading, user }, logout }) => {
   const guestNav = (
-    <div className="navbar-toolbar">
+    <div className="navbar-toolbar navbar-toolbar-item">
       <Link to="/register">
         <i className="fas fa-user-plus"></i>
         <h3>REGISTER</h3>
@@ -22,12 +22,25 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
   );
 
   const authNav = (
-    <div className="navbar-toolbar">
-      <a onClick={logout} href="#!">
-        <i class="fas fa-sign-out-alt"></i>
-        <h3>LOG OUT</h3>
-      </a>
-    </div>
+    <Fragment>
+      <div className="navbar-toolbar-story navbar-toolbar-item">
+        <Link to="/editor">
+          <i class="fas fa-feather-alt"></i>
+          <h3>NEW STORY</h3>
+        </Link>
+      </div>
+      <div className="navbar-toolbar">
+        <h3 className="navbar-toolbar-username">
+          {/*loading ? "" : user.email*/}
+        </h3>
+        <div className="navbar-toolbar-item">
+          <a onClick={logout} href="#!">
+            <i class="fas fa-sign-out-alt"></i>
+            <h3>LOG OUT</h3>
+          </a>
+        </div>
+      </div>
+    </Fragment>
   );
 
   return (
@@ -42,11 +55,13 @@ const Navbar = ({ auth: { isAuth, loading }, logout }) => {
 
 Navbar.propTypes = {
   auth: PropTypes.object.isRequired,
-  logout: PropTypes.func.isRequired
+  logout: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth
+const mapStateToProps = store => ({
+  auth: store.auth,
+  user: store.user
 });
 
 export default connect(mapStateToProps, { logout })(Navbar);
